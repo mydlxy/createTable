@@ -1,0 +1,768 @@
+create table if not exists  jsh_account(
+id bigint primary key,
+name varchar(20),
+serialNo varchar(20),
+initialAmount decimal(20,10),
+currentAmount decimal(20,10),
+remark varchar(20),
+enabled bit,
+sort varchar(20),
+isDefault bit,
+tenantId bigint,
+deleteFlag varchar(20)
+);
+
+create table if not exists  jsh_account_head(
+id bigint primary key,
+type varchar(20),
+organId bigint,
+handsPersonId bigint,
+creator bigint,
+changeAmount decimal(20,10),
+discountMoney decimal(20,10),
+totalPrice decimal(20,10),
+accountId bigint,
+billNo varchar(20),
+billTime date,
+remark varchar(20),
+fileName varchar(20),
+status varchar(20),
+tenantId bigint,
+deleteFlag varchar(20)
+);
+
+create table if not exists  jsh_account_head_vo4_body(
+id bigint primary key,
+info varchar(20),
+rows varchar(20)
+);
+
+create table if not exists  jsh_account_head(
+id bigint primary key,
+type varchar(20),
+organId bigint,
+handsPersonId bigint,
+creator bigint,
+changeAmount decimal(20,10),
+discountMoney decimal(20,10),
+totalPrice decimal(20,10),
+accountId bigint,
+billNo varchar(20),
+billTime date,
+remark varchar(20),
+fileName varchar(20),
+status varchar(20),
+tenantId bigint,
+deleteFlag varchar(20),
+organName varchar(20),
+handsPersonName varchar(20),
+userName varchar(20),
+accountName varchar(20),
+billTimeStr varchar(20)
+);
+
+create table if not exists  jsh_account_item(
+id bigint primary key,
+headerId bigint,
+accountId bigint,
+inOutItemId bigint,
+billId bigint,
+needDebt decimal(20,10),
+finishDebt decimal(20,10),
+eachAmount decimal(20,10),
+remark varchar(20),
+tenantId bigint,
+deleteFlag varchar(20)
+);
+
+create table if not exists  jsh_depot(
+id bigint primary key,
+name varchar(20),
+address varchar(20),
+warehousing decimal(20,10),
+truckage decimal(20,10),
+type int,
+sort varchar(20),
+remark varchar(20),
+principal bigint,
+enabled bit,
+tenantId bigint,
+deleteFlag varchar(20),
+isDefault bit
+);
+
+create table if not exists  jsh_depot(
+id bigint primary key,
+name varchar(20),
+address varchar(20),
+warehousing decimal(20,10),
+truckage decimal(20,10),
+type int,
+sort varchar(20),
+remark varchar(20),
+principal bigint,
+enabled bit,
+tenantId bigint,
+deleteFlag varchar(20),
+isDefault bit,
+principalName varchar(20),
+initStock decimal(20,10),
+currentStock decimal(20,10),
+lowSafeStock decimal(20,10),
+highSafeStock decimal(20,10)
+);
+
+create table if not exists  jsh_depot_head(
+id bigint primary key,
+type varchar(20),
+subType varchar(20),
+defaultNumber varchar(20),
+number varchar(20),
+createTime date,
+operTime date,
+organId bigint,
+creator bigint,
+accountId bigint,
+changeAmount decimal(20,10),
+backAmount decimal(20,10),
+totalPrice decimal(20,10),
+payType varchar(20),
+billType varchar(20),
+remark varchar(20),
+fileName varchar(20),
+salesMan varchar(20),
+accountIdList varchar(20),
+accountMoneyList varchar(20),
+discount decimal(20,10),
+discountMoney decimal(20,10),
+discountLastMoney decimal(20,10),
+otherMoney decimal(20,10),
+deposit decimal(20,10),
+status varchar(20),
+purchaseStatus varchar(20),
+linkNumber varchar(20),
+tenantId bigint,
+deleteFlag varchar(20)
+);
+
+create table if not exists  jsh_depot_head_vo4_body(
+id bigint primary key,
+info varchar(20),
+rows varchar(20),
+preTotalPrice decimal(20,10)
+);
+
+create table if not exists  jsh_depot_item(
+id bigint primary key,
+headerId bigint,
+materialId bigint,
+materialExtendId bigint,
+materialUnit varchar(20),
+sku varchar(20),
+operNumber decimal(20,10),
+basicNumber decimal(20,10),
+unitPrice decimal(20,10),
+purchaseUnitPrice decimal(20,10),
+taxUnitPrice decimal(20,10),
+allPrice decimal(20,10),
+remark varchar(20),
+depotId bigint,
+anotherDepotId bigint,
+taxRate decimal(20,10),
+taxMoney decimal(20,10),
+taxLastMoney decimal(20,10),
+materialType varchar(20),
+snList varchar(20),
+batchNumber varchar(20),
+expirationDate date,
+linkId bigint,
+tenantId bigint,
+deleteFlag varchar(20)
+);
+
+create table if not exists  jsh_depot_item_vo4_detail_by_type_and_m_id(
+number varchar(20),
+barCode varchar(20),
+materialName varchar(20),
+type varchar(20),
+subType varchar(20),
+bnum decimal(20,10),
+depotName varchar(20),
+otime date
+);
+
+create table if not exists  jsh_depot_item(
+id bigint primary key,
+headerId bigint,
+materialId bigint,
+materialExtendId bigint,
+materialUnit varchar(20),
+sku varchar(20),
+operNumber decimal(20,10),
+basicNumber decimal(20,10),
+unitPrice decimal(20,10),
+purchaseUnitPrice decimal(20,10),
+taxUnitPrice decimal(20,10),
+allPrice decimal(20,10),
+remark varchar(20),
+depotId bigint,
+anotherDepotId bigint,
+taxRate decimal(20,10),
+taxMoney decimal(20,10),
+taxLastMoney decimal(20,10),
+materialType varchar(20),
+snList varchar(20),
+batchNumber varchar(20),
+expirationDate date,
+linkId bigint,
+tenantId bigint,
+deleteFlag varchar(20),
+mname varchar(20),
+mmodel varchar(20)
+);
+
+create table if not exists  jsh_depot_item_vo4_material_and_sum(
+materialExtendId bigint,
+operNumber decimal(20,10)
+);
+
+create table if not exists  jsh_depot_item(
+id bigint primary key,
+headerId bigint,
+materialId bigint,
+materialExtendId bigint,
+materialUnit varchar(20),
+sku varchar(20),
+operNumber decimal(20,10),
+basicNumber decimal(20,10),
+unitPrice decimal(20,10),
+purchaseUnitPrice decimal(20,10),
+taxUnitPrice decimal(20,10),
+allPrice decimal(20,10),
+remark varchar(20),
+depotId bigint,
+anotherDepotId bigint,
+taxRate decimal(20,10),
+taxMoney decimal(20,10),
+taxLastMoney decimal(20,10),
+materialType varchar(20),
+snList varchar(20),
+batchNumber varchar(20),
+expirationDate date,
+linkId bigint,
+tenantId bigint,
+deleteFlag varchar(20),
+MId bigint,
+MName varchar(20),
+MModel varchar(20),
+MaterialUnit varchar(20),
+MColor varchar(20),
+MStandard varchar(20),
+MMfrs varchar(20),
+MOtherField1 varchar(20),
+MOtherField2 varchar(20),
+MOtherField3 varchar(20),
+enableSerialNumber varchar(20),
+enableBatchNumber varchar(20),
+DepotName varchar(20),
+AnotherDepotName varchar(20),
+UnitId bigint,
+unitName varchar(20),
+ratio int,
+otherUnit varchar(20),
+presetPriceOne decimal(20,10),
+priceStrategy varchar(20),
+purchaseDecimal decimal(20,10),
+barCode varchar(20)
+);
+
+create table if not exists  jsh_function(
+id bigint primary key,
+number varchar(20),
+name varchar(20),
+parentNumber varchar(20),
+url varchar(20),
+component varchar(20),
+state bit,
+sort varchar(20),
+enabled bit,
+type varchar(20),
+pushBtn varchar(20),
+icon varchar(20),
+deleteFlag varchar(20)
+);
+
+create table if not exists  jsh_function(
+id bigint primary key,
+number varchar(20),
+name varchar(20),
+parentNumber varchar(20),
+url varchar(20),
+component varchar(20),
+state bit,
+sort varchar(20),
+enabled bit,
+type varchar(20),
+pushBtn varchar(20),
+icon varchar(20),
+deleteFlag varchar(20),
+parentName varchar(20)
+);
+
+create table if not exists  jsh_in_out_item(
+id bigint primary key,
+name varchar(20),
+type varchar(20),
+remark varchar(20),
+enabled bit,
+sort varchar(20),
+tenantId bigint,
+deleteFlag varchar(20)
+);
+
+create table if not exists  jsh_log(
+id bigint primary key,
+userId bigint,
+operation varchar(20),
+clientIp varchar(20),
+createTime date,
+status char(2),
+content varchar(20),
+tenantId bigint
+);
+
+create table if not exists  jsh_material(
+id bigint primary key,
+categoryId bigint,
+name varchar(20),
+mfrs varchar(20),
+model varchar(20),
+standard varchar(20),
+color varchar(20),
+unit varchar(20),
+remark varchar(20),
+imgName varchar(20),
+unitId bigint,
+expiryNum int,
+weight decimal(20,10),
+enabled bit,
+otherField1 varchar(20),
+otherField2 varchar(20),
+otherField3 varchar(20),
+enableSerialNumber varchar(20),
+enableBatchNumber varchar(20),
+tenantId bigint,
+deleteFlag varchar(20)
+);
+
+create table if not exists  jsh_material_attribute(
+id bigint primary key,
+attributeName varchar(20),
+attributeValue varchar(20),
+tenantId bigint,
+deleteFlag varchar(20)
+);
+
+create table if not exists  jsh_material_category(
+id bigint primary key,
+name varchar(20),
+categoryLevel smallint,
+parentId bigint,
+sort varchar(20),
+serialNo varchar(20),
+remark varchar(20),
+createTime date,
+updateTime date,
+tenantId bigint,
+deleteFlag varchar(20)
+);
+
+create table if not exists  jsh_material_current_stock(
+id bigint primary key,
+materialId bigint,
+depotId bigint,
+currentNumber decimal(20,10),
+tenantId bigint,
+deleteFlag varchar(20)
+);
+
+create table if not exists  jsh_material_extend(
+id bigint primary key,
+materialId bigint,
+barCode varchar(20),
+commodityUnit varchar(20),
+sku varchar(20),
+purchaseDecimal decimal(20,10),
+commodityDecimal decimal(20,10),
+wholesaleDecimal decimal(20,10),
+lowDecimal decimal(20,10),
+defaultFlag varchar(20),
+createTime date,
+createSerial varchar(20),
+updateSerial varchar(20),
+updateTime bigint,
+tenantId bigint,
+deleteFlag varchar(20)
+);
+
+create table if not exists  jsh_material_initial_stock(
+id bigint primary key,
+materialId bigint,
+depotId bigint,
+number decimal(20,10),
+lowSafeStock decimal(20,10),
+highSafeStock decimal(20,10),
+tenantId bigint,
+deleteFlag varchar(20)
+);
+
+create table if not exists  jsh_material_initial_stock_with_material(
+materialId bigint,
+number decimal(20,10)
+);
+
+create table if not exists  jsh_material_property(
+id bigint primary key,
+nativeName varchar(20),
+enabled bit,
+sort varchar(20),
+anotherName varchar(20),
+deleteFlag varchar(20)
+);
+
+create table if not exists  jsh_material(
+id bigint primary key,
+categoryId bigint,
+name varchar(20),
+mfrs varchar(20),
+model varchar(20),
+standard varchar(20),
+color varchar(20),
+unit varchar(20),
+remark varchar(20),
+imgName varchar(20),
+unitId bigint,
+expiryNum int,
+weight decimal(20,10),
+enabled bit,
+otherField1 varchar(20),
+otherField2 varchar(20),
+otherField3 varchar(20),
+enableSerialNumber varchar(20),
+enableBatchNumber varchar(20),
+tenantId bigint,
+deleteFlag varchar(20),
+unitName varchar(20),
+categoryName varchar(20),
+materialOther varchar(20),
+stock decimal(20,10),
+purchaseDecimal decimal(20,10),
+commodityDecimal decimal(20,10),
+wholesaleDecimal decimal(20,10),
+lowDecimal decimal(20,10),
+billPrice decimal(20,10),
+mBarCode varchar(20),
+commodityUnit varchar(20),
+meId bigint,
+initialStock decimal(20,10),
+currentStock decimal(20,10),
+currentStockPrice decimal(20,10),
+sku varchar(20),
+depotId bigint
+);
+
+create table if not exists  jsh_msg(
+id bigint primary key,
+msgTitle varchar(20),
+msgContent varchar(20),
+createTime date,
+type varchar(20),
+status varchar(20),
+tenantId bigint,
+deleteFlag varchar(20)
+);
+
+create table if not exists  jsh_msg(
+id bigint primary key,
+msgTitle varchar(20),
+msgContent varchar(20),
+createTime date,
+type varchar(20),
+status varchar(20),
+tenantId bigint,
+deleteFlag varchar(20),
+createTimeStr varchar(20)
+);
+
+create table if not exists  jsh_organization(
+id bigint primary key,
+orgNo varchar(20),
+orgAbr varchar(20),
+parentId bigint,
+sort varchar(20),
+remark varchar(20),
+createTime date,
+updateTime date,
+tenantId bigint,
+deleteFlag varchar(20)
+);
+
+create table if not exists  jsh_orga_user_rel(
+id bigint primary key,
+orgaId bigint,
+userId bigint,
+userBlngOrgaDsplSeq varchar(20),
+deleteFlag varchar(20),
+createTime date,
+creator bigint,
+updateTime date,
+updater bigint,
+tenantId bigint
+);
+
+create table if not exists  jsh_orga_user_rel(
+id bigint primary key,
+orgaId bigint,
+userId bigint,
+userBlngOrgaDsplSeq varchar(20),
+deleteFlag varchar(20),
+createTime date,
+creator bigint,
+updateTime date,
+updater bigint,
+tenantId bigint
+);
+
+create table if not exists  jsh_person(
+id bigint primary key,
+type varchar(20),
+name varchar(20),
+enabled bit,
+sort varchar(20),
+tenantId bigint,
+deleteFlag varchar(20)
+);
+
+create table if not exists  jsh_platform_config(
+id bigint primary key,
+platformKey varchar(20),
+platformKeyInfo varchar(20),
+platformValue varchar(20)
+);
+
+create table if not exists  jsh_role(
+id bigint primary key,
+name varchar(20),
+type varchar(20),
+priceLimit varchar(20),
+value varchar(20),
+description varchar(20),
+enabled bit,
+sort varchar(20),
+tenantId bigint,
+deleteFlag varchar(20)
+);
+
+create table if not exists  jsh_role(
+id bigint primary key,
+name varchar(20),
+type varchar(20),
+priceLimit varchar(20),
+value varchar(20),
+description varchar(20),
+enabled bit,
+sort varchar(20),
+tenantId bigint,
+deleteFlag varchar(20),
+priceLimitStr varchar(20)
+);
+
+create table if not exists  jsh_serial_number(
+id bigint primary key,
+materialId bigint,
+depotId bigint,
+serialNumber varchar(20),
+isSell varchar(20),
+remark varchar(20),
+deleteFlag varchar(20),
+createTime date,
+creator bigint,
+updateTime date,
+updater bigint,
+inBillNo varchar(20),
+outBillNo varchar(20),
+tenantId bigint
+);
+
+create table if not exists  jsh_serial_number(
+id bigint primary key,
+materialId bigint,
+depotId bigint,
+serialNumber varchar(20),
+isSell varchar(20),
+remark varchar(20),
+deleteFlag varchar(20),
+createTime date,
+creator bigint,
+updateTime date,
+updater bigint,
+inBillNo varchar(20),
+outBillNo varchar(20),
+tenantId bigint,
+materialCode varchar(20),
+materialName varchar(20),
+creatorName varchar(20),
+updaterName varchar(20),
+depotHeadNumber varchar(20),
+depotHeadType varchar(20),
+depotName varchar(20),
+createTimeStr varchar(20),
+updateTimeStr varchar(20)
+);
+
+create table if not exists  jsh_supplier(
+id bigint primary key,
+supplier varchar(20),
+contacts varchar(20),
+phoneNum varchar(20),
+email varchar(20),
+description varchar(20),
+isystem char(2),
+type varchar(20),
+enabled bit,
+advanceIn decimal(20,10),
+beginNeedGet decimal(20,10),
+beginNeedPay decimal(20,10),
+allNeedGet decimal(20,10),
+allNeedPay decimal(20,10),
+fax varchar(20),
+telephone varchar(20),
+address varchar(20),
+taxNum varchar(20),
+bankName varchar(20),
+accountNumber varchar(20),
+taxRate decimal(20,10),
+sort varchar(20),
+tenantId bigint,
+deleteFlag varchar(20)
+);
+
+create table if not exists  jsh_sys_login_model(
+username varchar(20),
+password varchar(20),
+captcha varchar(20),
+checkKey varchar(20)
+);
+
+create table if not exists  jsh_system_config(
+id bigint primary key,
+companyName varchar(20),
+companyContacts varchar(20),
+companyAddress varchar(20),
+companyTel varchar(20),
+companyFax varchar(20),
+companyPostCode varchar(20),
+saleAgreement varchar(20),
+depotFlag varchar(20),
+customerFlag varchar(20),
+minusStockFlag varchar(20),
+purchaseBySaleFlag varchar(20),
+tenantId bigint,
+deleteFlag varchar(20)
+);
+
+create table if not exists  jsh_tenant(
+id bigint primary key,
+tenantId bigint,
+loginName varchar(20),
+userNumLimit int,
+type varchar(20),
+enabled bit,
+createTime date,
+expireTime date,
+remark varchar(20)
+);
+
+create table if not exists  jsh_tenant(
+id bigint primary key,
+tenantId bigint,
+loginName varchar(20),
+userNumLimit int,
+type varchar(20),
+enabled bit,
+createTime date,
+expireTime date,
+remark varchar(20),
+createTimeStr varchar(20),
+expireTimeStr varchar(20),
+userCount int
+);
+
+create table if not exists  jsh_unit(
+id bigint primary key,
+name varchar(20),
+basicUnit varchar(20),
+otherUnit varchar(20),
+otherUnitTwo varchar(20),
+otherUnitThree varchar(20),
+ratio int,
+ratioTwo int,
+ratioThree int,
+enabled bit,
+tenantId bigint,
+deleteFlag varchar(20)
+);
+
+create table if not exists  jsh_user(
+id bigint primary key,
+username varchar(20),
+loginName varchar(20),
+password varchar(20),
+position varchar(20),
+department varchar(20),
+email varchar(20),
+phonenum varchar(20),
+ismanager char(2),
+isystem char(2),
+status char(2),
+description varchar(20),
+remark varchar(20),
+tenantId bigint
+);
+
+create table if not exists  jsh_user_business(
+id bigint primary key,
+type varchar(20),
+keyId varchar(20),
+value varchar(20),
+btnStr varchar(20),
+tenantId bigint,
+deleteFlag varchar(20)
+);
+
+create table if not exists  jsh_user(
+id bigint primary key,
+username varchar(20),
+loginName varchar(20),
+password varchar(20),
+position varchar(20),
+department varchar(20),
+email varchar(20),
+phonenum varchar(20),
+ismanager char(2),
+isystem char(2),
+status char(2),
+description varchar(20),
+remark varchar(20),
+tenantId bigint,
+orgAbr varchar(20),
+orgaId bigint,
+userBlngOrgaDsplSeq varchar(20),
+orgaUserRelId bigint,
+roleId bigint,
+roleName varchar(20),
+userType varchar(20),
+userNumLimit int,
+expireTime varchar(20)
+);
+
