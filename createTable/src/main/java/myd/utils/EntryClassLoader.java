@@ -58,7 +58,8 @@ public class EntryClassLoader extends URLClassLoader {
      *          * 那么根路径：/e:/qw/e
      *          *
      *          *
-     *          * 传入的URL参数：new URL[]{new File("file:/e:/qw/e").toURI().toURL()}
+     *          * 传入的URL参数：
+     *             new URL[]{new File("file:/e:/qw/e").toURI().toURL()}
      *          *
      *
      *
